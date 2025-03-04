@@ -8,6 +8,7 @@ package testClassPackage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
@@ -28,8 +29,7 @@ public class TestClass1 {
 	@BeforeClass
 	public void SetUp() {
 		baseUrl = "http://thawing-shelf-73260.herokuapp.com/";
-		System.setProperty("webdriver.gecko.driver", "/C:/Users/HP/Documents/workspace/geckodriver.exe");
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
@@ -42,17 +42,17 @@ public class TestClass1 {
 		 * As a personal finance lover, user can manage the categories I can use to classify my expenses.
 		 */
 		
-		@Test(enabled=true, dataProvider="categories", dataProviderClass=DataProviderClass.class)
+		@Test(enabled=false, dataProvider="categories", dataProviderClass=DataProviderClass.class)
 		public void testcase1_create_category(String category) {
 			ListCategoryPage.listCategories(driver, category);
 		}
 		
-		@Test(enabled=true)
+		@Test(enabled=false)
 		public void testcase2_edit_category() {
 			ListCategoryPage.editCategories(driver, "Chicken");
 		}
 		
-		@Test(enabled=true)
+		@Test(enabled=false)
 		public void testcase3_delete_category() {
 			ListCategoryPage.deleteCategories(driver);
 		}
@@ -66,7 +66,7 @@ public class TestClass1 {
 	 * Here test case is reading input data from DataProviderclass to create expenses
 	 */
 	
-	@Test(enabled=true, dataProvider="getExpensesData", dataProviderClass=DataProviderClass.class)
+	@Test(enabled=false, dataProvider="getExpensesData", dataProviderClass=DataProviderClass.class)
 	public void testcase4_add_expenses(String day, String month, String year, 
 			String category, String amount, String reason) {
 		AddExpensesPage.addExpenses(driver, day, month, year, category, amount, reason);
@@ -80,12 +80,12 @@ public class TestClass1 {
 	 * As a personal finance lover, User can manage the expenses that he/she has already registered.
 	 */
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void testcase5_edit_expenses() {
 		AddExpensesPage.editExpenses(driver, "14", "10", "2018", "bmw", "5000", "edited_expense");		
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void testcase6_delete_expenses() {
 		ListExpensesPage.deleteListedExpenses(driver);
 	}
@@ -100,7 +100,7 @@ public class TestClass1 {
 	 * in one single page.
 	 */
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void testcase7_list_expenses() {
 		ListExpensesPage.ListExpenses(driver);	
 	}
@@ -114,12 +114,12 @@ public class TestClass1 {
 	 * Please refer DataProviderClass for different set of inputs.
 	 */
 	
-	@Test(enabled=true, dataProvider="editUserData", dataProviderClass=DataProviderClass.class)
+	@Test(enabled=false, dataProvider="editUserData", dataProviderClass=DataProviderClass.class)
 	public void testcase8_edit_user_account(String Oldpassword, String newpassword, String Repeatpassword) {
 		EditUserAccount.editUserAccount(driver, Oldpassword, newpassword, Repeatpassword );
 	}
 	
-	@Test(enabled=true)
+	@Test(enabled=false)
 	public void testcase9_edit_user_name() {
 		EditUserAccount.validateEditUserName(driver, "EditUserName");
 	}

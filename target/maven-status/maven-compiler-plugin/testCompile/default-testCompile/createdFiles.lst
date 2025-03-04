@@ -1,0 +1,9 @@
+testClassPackage\DataProviderClass.class
+pageObjectsPackage\ListExpensesPage.class
+pageObjectsPackage\ListCategoryPage.class
+pageObjectsPackage\LoginPage.class
+testClassPackage\TestClass.class
+testClassPackage\TestClass1.class
+pageObjectsPackage\AddExpensesPage.class
+pageObjectsPackage\EditUserAccount.class
+pageObjectsPackage\NewUserRegistrationPage.class

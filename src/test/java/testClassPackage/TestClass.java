@@ -10,6 +10,7 @@ package testClassPackage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
@@ -28,8 +29,7 @@ public class TestClass {
 	@BeforeMethod
 	public void SetUp() {
 		baseUrl = "http://thawing-shelf-73260.herokuapp.com/";
-		System.setProperty("webdriver.gecko.driver", "/C:/Users/HP/Documents/workspace/geckodriver.exe");
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
